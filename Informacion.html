@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>TAXI ALEX</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Topbar Start -->
+    <div class="container-fluid bg-dark">
+        <div class="row py-2 px-lg-5">
+            <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
+                <div class="d-inline-flex align-items-center text-white">
+                    <small><i class="fa fa-phone-alt mr-2"></i>+012 345 6789</small>
+                    <small class="px-3">|</small>
+                    <small><i class="fa fa-envelope mr-2"></i>info@example.com</small>
+                </div>
+            </div>
+            <div class="col-lg-6 text-center text-lg-right">
+                <div class="d-inline-flex align-items-center">
+                    <a class="text-white px-2" href="">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a class="text-white px-2" href="">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a class="text-white px-2" href="">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a class="text-white px-2" href="">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a class="text-white pl-2" href="">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    <div class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-lg-5">
+            <a href="index.html" class="navbar-brand ml-lg-3">
+                <h1 class="m-0 display-5 text-uppercase text-primary"><img src="img/alexis_basura.png" alt="xd" height="100px" height="100px">TAXI ALEX</h1>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
+                <div class="navbar-nav m-auto py-0">
+                    <a href="index.html" class="nav-item nav-link">Home</a>
+                    
+                    
+                    <div class="nav-item dropdown">
+                       
+                        <div class="dropdown-menu rounded-0 m-0">
+                            <a href="blog.html" class="dropdown-item">Blog Grid</a>
+                            <a href="single.html" class="dropdown-item">Blog Detail</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                </div>
+                <a href="" class="btn btn-primary py-2 px-4 d-none d-lg-block">Get A Quote</a>
+            </div>
+        </nav>
+    </div>
+    <!-- Navbar End -->
+
+
+    <!-- Header Start -->
+    <div class="jumbotron jumbotron-fluid mb-5">
+        <div class="container text-center py-5">
+            <h1 class="text-white display-3">Service</h1>
+            <div class="d-inline-flex align-items-center text-white">
+                <p class="m-0"><a class="text-white" href="">Home</a></p>
+                <i class="fa fa-circle px-3"></i>
+                <p class="m-0">Service</p>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+
+
+
+    <!--  Quote Request Start -->
+    <div class="container-fluid bg-secondary my-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7 py-5 py-lg-0">
+                    <h6 class="text-primary text-uppercase font-weight-bold">Get A Quote</h6>
+                    <h1 class="mb-4">INFORMACIÓN DEL SERVICIO</h1>
+                    
+                    <div class="row">
+                        <div id="details-container">
+                            <p><strong>DE:</strong> <span id="from-details"></span></p>
+                            <p><strong>PARA:</strong> <span id="to-details"></span></p>
+                            <p><strong>FECHA:</strong> <span id="date-details"></span></p>
+                            <p><strong>SERVICIO:</strong> <span id="service-details"></span></p>
+                            <p><strong>PRECIO:</strong> <span id="price-details"></span></p>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    // Función para obtener parámetros de la URL
+                    function getParameterByName(name, url) {
+                        if (!url) url = window.location.href;
+                        name = name.replace(/[\[\]]/g, '\\$&');
+                        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                            results = regex.exec(url);
+                        if (!results) return null;
+                        if (!results[2]) return '';
+                        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+                    }
+            
+                    // Obtener parámetros de la URL
+                    var from = getParameterByName('from');
+                    var to = getParameterByName('to');
+                    var date = getParameterByName('date');
+                    var servicio = getParameterByName('servicio');
+                    var precio = getParameterByName('precio');
+            
+                    // Mostrar detalles en la página
+                    document.getElementById('from-details').innerText = from;
+                    document.getElementById('to-details').innerText = to;
+                    document.getElementById('date-details').innerText = date;
+                    document.getElementById('service-details').innerText = servicio;
+                    document.getElementById('price-details').innerText = precio;
+                </script>
+                <div class="col-lg-5">
+                    <h3>INFORMACION DEL PASAJERO</h3>
+						<ul class="list li">
+							<li class="list_count">1</li>
+							<li class="extra_wrapper">
+								<div class="text1 color2"><a href="#">Nombre (completo) *</a></div>
+                                <input name="Name" placeHolder="Nombre:" type="text" data-constraints='@NotEmpty @Required @AlphaSpecial'>
+								<br>
+                                <br>
+                                <br>
+							</li>
+						</ul>
+						<ul class="list li">
+							<li class="list_count">2</li>
+							<li class="extra_wrapper">
+								<div class="text1 color2"><a href="#">Telefono Celular</a></div>
+								<input name="Phone" placeHolder="Telefono:" type="number" data-constraints="@NotEmpty @Required ">
+							</li>
+						</ul>
+                        <button onclick="enviarMensajeWhatsApp()">Enviar WhatsApp</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function enviarMensajeWhatsApp() {
+        // Obtener los detalles del servicio y del pasajero
+        var from = document.getElementById('from-details').innerText;
+        var to = document.getElementById('to-details').innerText;
+        var date = document.getElementById('date-details').innerText;
+        var servicio = document.getElementById('service-details').innerText;
+        var precio = document.getElementById('price-details').innerText;
+        var nombre = document.querySelector('input[name="Name"]').value;
+        var telefono = document.querySelector('input[name="Phone"]').value;
+
+        // Verificar que se haya ingresado un número de teléfono y un nombre
+        if (!nombre || !telefono) {
+            alert("Por favor, ingresa el nombre y el número de teléfono antes de enviar la solicitud.");
+            return;
+        }
+
+        // Construir el mensaje
+        var mensaje = "Detalles del Servicio:\n" +
+                    "FROM: " + from + "\n" +
+                    "TO: " + to + "\n" +
+                    "DATE: " + date + "\n" +
+                    "Servicio: " + servicio + "\n" +
+                    "Precio: " + precio + "\n\n" +
+                    "Información del Pasajero:\n" +
+                    "Nombre: " + nombre + "\n" +
+                    "Teléfono: " + telefono;
+
+        // Enviar el mensaje a través de la API de WhatsApp
+        var url = 'Introducir URL de dominio';
+        var parametros = {
+            appkey: 'Introducir appkey',
+            authkey: 'Introducir authkey',
+            to: telefono, // Utilizar el número de teléfono ingresado
+            message: mensaje,
+            sandbox: 'false'
+        };
+
+        // Realizar la petición AJAX utilizando Fetch
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(parametros)
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Mostrar alerta de "Solicitud Correcta"
+            alert("Solicitud Correcta");
+            console.log(data); // Puedes omitir esta línea si no necesitas imprimir la respuesta en la consola
+        })
+        .catch(error => {
+            console.error('Error al enviar el mensaje:', error);
+        });
+    }
+        </script>
+    <!-- Quote Request Start -->
+
+
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-white mt-5 py-5 px-sm-3 px-md-5">
+        <div class="row pt-5">
+            <div class="col-lg-7 col-md-6">
+                <div class="row">
+                    <div class="col-md-6 mb-5">
+                        <h3 class="text-primary mb-4">CONTACTO</h3>
+                        <p><i class="fa fa-map-marker-alt mr-2"></i>SAN LUIS, LIMA, PERÚ</p>
+                        <p><i class="fa fa-phone-alt mr-2"></i>+989360028</p>
+                        <p><i class="fa fa-envelope mr-2"></i>41826407andre@gmail.com</p>
+                        <div class="d-flex justify-content-start mt-4">
+                            <a class="btn btn-outline-light btn-social mr-2" href="#"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-light btn-social mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-light btn-social mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-5">
+                        <h3 class="text-primary mb-4">Quick Links</h3>
+                        <div class="d-flex flex-column justify-content-start">
+                            <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Home</a>
+                            <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>About Us</a>
+                            <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Our Services</a>
+                            <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Pricing Plan</a>
+                            <a class="text-white" href="#"><i class="fa fa-angle-right mr-2"></i>Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-6 mb-5">
+                <h3 class="text-primary mb-4">INFORMACIÓN</h3>
+                <p>¡Bienvenido a [TAXI ALEX] - Tu Socio Confiable en Transporte!
+
+                    En TAXI ALEX, nos enorgullece ser tu opción número uno para todas tus necesidades de transporte. Nos dedicamos a proporcionar soluciones de transporte eficientes, seguras y personalizadas  y aun buen precio que se adaptan a tus requisitos específicos. Ya sea que necesites transporte de carga, servicios de mudanza, transporte taxi o cualquier otra necesidad de movimiento, estamos aquí para hacer que tu experiencia sea sin complicaciones.  </p>
+                <div class="w-100">
+                    <div class="input-group">
+                        <input type="text" class="form-control border-light" style="padding: 30px;" placeholder="Your Email Address">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary px-4">Sign Up</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid bg-dark text-white border-top py-4 px-sm-3 px-md-5" style="border-color: #3E3E4E !important;">
+        <div class="row">
+            <div class="col-lg-6 text-center text-md-left mb-3 mb-md-0">
+                <p class="m-0 text-white">&copy; <a href="#">Your Site Name</a>. All Rights Reserved. 
+				
+				<!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+				Designed by <a href="https://htmlcodex.com">HTML Codex</a>
+                </p>
+            </div>
+            <div class="col-lg-6 text-center text-md-right">
+                <ul class="nav d-inline-flex">
+                    <li class="nav-item">
+                        <a class="nav-link text-white py-0" href="#">Privacy</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white py-0" href="#">Terms</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white py-0" href="#">FAQs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white py-0" href="#">Help</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

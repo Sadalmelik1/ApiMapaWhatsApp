@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Taxi Alex</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Topbar Start -->
+    <div class="container-fluid bg-dark">
+        <div class="row py-2 px-lg-5">
+            <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
+                <div class="d-inline-flex align-items-center text-white">
+                    <small><i class="fa fa-phone-alt mr-2"></i>+51 989360028</small>
+                    <small class="px-3">|</small>
+                    <small><i class="fa fa-envelope mr-2"></i>41826407andre@gmail.com</small>
+                </div>
+            </div>
+            <div class="col-lg-6 text-center text-lg-right">
+                <div class="d-inline-flex align-items-center">
+                    <a class="text-white px-2" href="">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a class="text-white px-2" href="">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a class="text-white px-2" href="">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a class="text-white px-2" href="">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a class="text-white pl-2" href="">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    <div class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-lg-5">
+            <a href="index.html" class="navbar-brand ml-lg-3">
+                <h1 class="m-0 display-5 text-uppercase text-primary"><img src="img/alexis_basura.png" alt="xd" height="100px" height="100px"> Taxi Alex</h1>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
+                <div class="navbar-nav m-auto py-0">
+                    <a href="index.html" class="nav-item nav-link active">Home</a>
+                    
+                    
+                    <div class="nav-item dropdown">
+                        
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                </div>
+                <a href="" class="btn btn-primary py-2 px-4 d-none d-lg-block">Get A Quote</a>
+            </div>
+        </nav>
+    </div>
+    <!-- Navbar End -->
+
+
+    <!-- Header Start -->
+    <div class="jumbotron jumbotron-fluid mb-5">
+        <div class="container text-center py-5">
+            <h1 class="text-primary mb-4">Safe & Faster</h1>
+            <h1 class="text-white display-3 mb-5">Viajes en Taxi</h1>
+            <div class="mx-auto" style="width: 100%; max-width: 600px;">
+                <div class="input-group">
+                    <!--==============================BARRA DE BUSQUEDA=================================-->
+                    <style>
+                        /* Set the size of the div element that contains the map */
+                        #map {
+                        height: 500px;
+                        width: 1200px;
+                        margin: auto;
+                        border: 2px solid black;
+                        border-radius: 5%;
+                        z-index: +1;
+                        margin-left: -50%;
+                        margin-top: 25%;
+                        }
+
+                        #search-container {
+                        margin-top: 10px;
+                        display: flex;
+                        justify-content: space-between;
+                        }
+
+                        #search-input1,
+                        #search-input2 {
+                        width: 500px;
+                        padding: 10px;
+                        font-size: 20px;
+                        margin-right: 0px;
+                        margin-left: 0%;
+                        }
+                        #date-input{
+                        width: 160px;
+                        padding: 1%;
+
+                        }
+
+                        #search-container{
+                            margin: 2%;
+                            margin-left: -20%;
+                            width: 85%;
+
+                        }
+
+                        #buscar{
+                            background-color: rgb(0, 217, 255);
+                            width: 22%;
+                        }
+                    </style>
+
+                    <!--The div elements for the map, message, and search -->
+                    <div class="input-group-append">
+                    <div id="search-container">
+                        <input id="search-input1" type="text" placeholder="Direccion1">
+                        <input id="search-input2" type="text" placeholder="Direccion2">
+                        <input id="date-input" type="datetime-local" min="" required>
+                        <button itype="submit" id="buscar" class="xd" onclick="searchLocations()">Search</button>
+                    </div>
+                    </div>
+                    <div id="map" style="position: absolute; "></div>
+                    <div id="msg"></div>
+
+                    <!-- Display details of the search -->
+                    <h1 class="text-white display-3 mb-5" style="padding-top: 90%;">SELECCIONA TU SERVICIO</h1>
+                    <div id="search-details">
+                        <p><strong class="text-primary mb-4">DE:</strong> <span id="search-input1-details" class="text-primary mb-4"></span></p>
+                        <p><strong class="text-primary mb-4">PARA:</strong> <span id="search-input2-details" class="text-primary mb-4"></span></p>
+                        <p><strong class="text-primary mb-4">FECHA:</strong> <span id="date-details" class="text-primary mb-4"></span></p>
+                    </div>
+
+                    <script>
+                        // Initialize and add the map
+                        var map;
+                        var mk1, mk2, line;
+
+                        function initMap() {
+                        // The map, centered on Lima
+                        const center = {
+                            lat: -12.0463731,
+                            lng: -77.042754
+                        };
+                        const options = {
+                            zoom: 12,
+                            scaleControl: true,
+                            center: center
+                        };
+                        map = new google.maps.Map(
+                            document.getElementById('map'), options);
+
+                        // Autocomplete for search input 1
+                        var input1 = document.getElementById('search-input1');
+                        var autocomplete1 = new google.maps.places.Autocomplete(input1);
+                        autocomplete1.setComponentRestrictions({
+                            country: ['pe']
+                        });
+
+                        // Autocomplete for search input 2
+                        var input2 = document.getElementById('search-input2');
+                        var autocomplete2 = new google.maps.places.Autocomplete(input2);
+                        autocomplete2.setComponentRestrictions({
+                            country: ['pe']
+                        });
+
+                        // Default markers for The Dakota and The Frick Collection
+                        mk1 = new google.maps.Marker({
+                            map: map
+                        });
+                        mk2 = new google.maps.Marker({
+                            map: map
+                        });
+
+                        // Draw a line showing the straight distance between the markers
+                        line = new google.maps.Polyline({
+                            map: map
+                        });
+
+                        // Calculate and display the distance between markers
+                        updateDistance();
+
+                        let directionsService = new google.maps.DirectionsService();
+                        let directionsRenderer = new google.maps.DirectionsRenderer();
+                        directionsRenderer.setMap(map);
+                        }
+
+                        // Function to update locations based on user input
+                        function searchLocations() {
+                        var input1 = document.getElementById('search-input1').value;
+                        var input2 = document.getElementById('search-input2').value;
+                        var dateInput = document.getElementById('date-input').value;
+                        
+                        // Validar que todos los campos estén completos
+                        if (!input1 || !input2 || !dateInput) {
+                            alert('Por favor, complete todos los campos antes de realizar la búsqueda.');
+                            return;
+                        }
+                        
+                        // Actualizar detalles de búsqueda
+                        document.getElementById('search-input1-details').innerText = input1;
+                        document.getElementById('search-input2-details').innerText = input2;
+                        document.getElementById('date-details').innerText = dateInput;
+
+                        // Use the Places API to get lat/lng for the entered addresses
+                        var geocoder = new google.maps.Geocoder();
+                        geocoder.geocode({
+                            'address': input1,
+                            'componentRestrictions': {
+                            country: 'PE'
+                            }
+                        }, function (results, status) {
+                            if (status == 'OK') {
+                            mk1.setPosition(results[0].geometry.location);
+                            } else {
+                            alert('Geocode was not successful for the following reason: ' + status);
+                            }
+                        });
+
+                        geocoder.geocode({
+                            'address': input2,
+                            'componentRestrictions': {
+                            country: 'PE'
+                            }
+                        }, function (results, status) {
+                            if (status == 'OK') {
+                            mk2.setPosition(results[0].geometry.location);
+                            } else {
+                            alert('Geocode was not successful for the following reason: ' + status);
+                            }
+
+                            // Recalculate distance and update message
+                            updateDistance();
+
+                            // Recalculate and update route
+                            route();
+                        });
+                        }
+
+                        function updateDistance() {
+                        var distance = haversine_distance(mk1, mk2);
+                        document.getElementById('msg').innerHTML = "Distance between markers: " + distance.toFixed(2) + " mi.";
+                        }
+
+                        function route() {
+                        let directionsService = new google.maps.DirectionsService();
+                        let directionsRenderer = new google.maps.DirectionsRenderer();
+                        directionsRenderer.setMap(map);
+
+                        const route = {
+                            origin: mk1.getPosition(),
+                            destination: mk2.getPosition(),
+                            travelMode: 'DRIVING'
+                        }
+
+                        directionsService.route(route,
+                            function (response, status) {
+                            if (status !== 'OK') {
+                                window.alert('Directions request failed due to ' + status);
+                                return;
+                            } else {
+                                directionsRenderer.setDirections(response);
+                                var directionsData = response.routes[0].legs[0];
+                                if (!directionsData) {
+                                window.alert('Directions request failed');
+                                return;
+                                } else {
+                                document.getElementById('msg').innerHTML += " Driving distance is " + directionsData.distance.text + " (" + directionsData.duration.text + ").";
+                                // Calcular el precio basado en la distancia
+                                updatePrice(directionsData.distance.value);
+                                }
+                            }
+                            });
+                        }
+
+                        function haversine_distance(mk1, mk2) {
+                        var R = 3958.8; // Radius of the Earth in miles
+                        var rlat1 = mk1.getPosition().lat() * (Math.PI / 180); // Convert degrees to radians
+                        var rlat2 = mk2.getPosition().lat() * (Math.PI / 180); // Convert degrees to radians
+                        var difflat = rlat2 - rlat1; // Radian difference (latitudes)
+                        var difflon = (mk2.getPosition().lng() - mk1.getPosition().lng()) * (Math.PI / 180); // Radian difference (longitudes)
+
+                        var d = 2 * R * Math.asin(Math.sqrt(Math.sin(difflat / 2) * Math.sin(difflat / 2) + Math.cos(rlat1) * Math.cos(rlat2) * Math.sin(difflon / 2) * Math.sin(difflon / 2)));
+                        return d;
+                        }
+                        function updatePrice(distance) {
+                            // Factor de multiplicación para cada tipo de servicio
+                            var factor1 = 1.5;
+                            var factor2 = 1.8;
+                            var factor3 = 2.5;
+
+                            // Calcular el precio para cada tipo de servicio
+                            var precio1 = distance * factor1 / 1000 * 1.5; // Convertir la distancia a kilómetros y aplicar el factor
+                            var precio2 = distance * factor2 / 1000 * 1.8;
+                            var precio3 = distance * factor3 / 1000 * 2.5;
+
+                            // Redondear los precios hacia arriba y mostrarlos en los elementos correspondientes
+                            document.getElementById('precio1').innerText = "Precio: S/." + Math.ceil(precio1 * 100) / 100;
+                            document.getElementById('precio2').innerText = "Precio: S/." + Math.ceil(precio2 * 100) / 100;
+                            document.getElementById('precio3').innerText = "Precio: S/." + Math.ceil(precio3 * 100) / 100;
+                        }
+                    </script>
+                    <!--Load the API from the specified URL -- remember to replace YOUR_API_KEY-->
+                    <script async defer src="Introducir apikey">
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+
+
+  
+        
+    <!-- About End -->
+
+
+   
+    <!-- Quote Request Start -->
+
+
+    <!-- Services Start -->
+    <style>
+        .precio{
+            font-size: 30px;
+        }
+    </style>
+    <div class="container-fluid pt-5">
+        <div class="container">
+            <div class="text-center pb-2">
+                <h6 class="text-primary text-uppercase font-weight-bold">Our Services</h6>
+                <h1 class="mb-4">LOS MEJORES SERVICIOS</h1>
+            </div>
+
+            <!---XDXD--->
+
+            <div class="row pb-3" style="margin-left: 15%; margin-right: -10%;">
+                <div class="col-lg-3 col-md-6 text-center mb-5">
+                    <div class="d-flex align-items-center justify-content-center bg-primary mb-4 p-4">
+                        <i class="fa fa-2x fa-plane text-dark pr-3"></i>
+                        <h6 class="text-white font-weight-medium m-0"></h6>
+                    </div>
+                    <h1>BARATO</h1>
+                    <h1 id="precio1" class="precio">Precio:S/.</h1>
+                    <button class="button button--webcoderskull button--border-thick button--text-medium" onclick="setDetails('ECONOMICO')">Detalles</button>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center mb-5">
+                    <div class="d-flex align-items-center justify-content-center bg-primary mb-4 p-4">
+                        <i class="fa fa-2x fa-ship text-dark pr-3"></i>
+                        <h6 class="text-white font-weight-medium m-0"></h6>
+                    </div>
+                    <h1>MEDIO</h1>
+					<h1 id="precio2" class="precio">Precio:S/.</h1>
+					<button class="button button--webcoderskull button--border-thick button--text-medium" onclick="setDetails('ECONOMICO')">Dettalles</button>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center mb-5">
+                    <div class="d-flex align-items-center justify-content-center bg-primary mb-4 p-4">
+                        <i class="fa fa-2x fa-truck text-dark pr-3"></i>
+                        <h6 class="text-white font-weight-medium m-0"></h6>
+                    </div>
+                    <h1>VIP</h1>
+					<h1 id="precio3" class="precio">Precio:S/.</h1>
+					<button class="button button--webcoderskull button--border-thick button--text-medium" onclick="setDetails('ECONOMICO')">Detalles</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+    function setDetails(servicio) {
+        // Obtener datos de la búsqueda
+        var from = document.getElementById('search-input1-details').innerText;
+        var to = document.getElementById('search-input2-details').innerText;
+        var date = document.getElementById('date-details').innerText;
+        var precio;
+
+        // Obtener el precio según el servicio seleccionado
+        switch (servicio) {
+            case 'ECONOMICO':
+                precio = document.getElementById('precio1').innerText;
+                break;
+            case 'EJECUTIVO':
+                precio = document.getElementById('precio2').innerText;
+                break;
+            case 'VIP':
+                precio = document.getElementById('precio3').innerText;
+                break;
+            default:
+                precio = '';
+        }
+
+        // Codificar los valores antes de construir la URL
+        var encodedFrom = encodeURIComponent(from);
+        var encodedTo = encodeURIComponent(to);
+        var encodedDate = encodeURIComponent(date);
+        var encodedPrecio = encodeURIComponent(precio);
+
+        // Construir la URL con los parámetros
+        var url = 'Informacion.html' + '?from=' + encodeURIComponent(from) +
+            '&to=' + encodeURIComponent(to) +
+            '&date=' + encodeURIComponent(date) +
+            '&precio=' + encodeURIComponent(precio) +
+            '&servicio=' + encodeURIComponent(servicio);
+
+        // Redirigir a la página de detalles
+        window.location.href = url;
+    }
+    </script>
+    <!-- Services End -->
+
+
+    
+
+
+   
+
+
+
+    
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-white mt-5 py-5 px-sm-3 px-md-5">
+        <div class="row pt-5">
+            <div class="col-lg-7 col-md-6">
+                <div class="row">
+                    <div class="col-md-6 mb-5">
+                        <h3 class="text-primary mb-4">CONTACTO</h3>
+                        <p><i class="fa fa-map-marker-alt mr-2"></i>San Luis, Lima ,Perú</p>
+                        <p><i class="fa fa-phone-alt mr-2"></i>+51 989360028</p>
+                        <p><i class="fa fa-envelope mr-2"></i>41826407andre@gmail.com</p>
+                        <div class="d-flex justify-content-start mt-4">
+                            <a class="btn btn-outline-light btn-social mr-2" href="#"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-light btn-social mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-light btn-social mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-5">
+                        <h3 class="text-primary mb-4">Quick Links</h3>
+                        <div class="d-flex flex-column justify-content-start">
+                            <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Home</a>
+                            
+                            <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Pricing Plan</a>
+                            <a class="text-white" href="#"><i class="fa fa-angle-right mr-2"></i>Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-6 mb-5">
+                <h3 class="text-primary mb-4">INFORMACION</h3>
+                <p>¡Bienvenido a [TAXI ALEX] - Tu Socio Confiable en Transporte!
+
+                    En TAXI ALEX, nos enorgullece ser tu opción número uno para todas tus necesidades de transporte. Nos dedicamos a proporcionar soluciones de transporte eficientes, seguras y personalizadas  y aun buen precio que se adaptan a tus requisitos específicos. Ya sea que necesites transporte de carga, servicios de mudanza, transporte taxi o cualquier otra necesidad de movimiento, estamos aquí para hacer que tu experiencia sea sin complicaciones.  </p>
+                <div class="w-100">
+                    <div class="input-group">
+                        <input type="text" class="form-control border-light" style="padding: 30px;" placeholder="Your Email Address">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary px-4">Sign Up</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid bg-dark text-white border-top py-4 px-sm-3 px-md-5" style="border-color: #3E3E4E !important;">
+        <div class="row">
+            <div class="col-lg-6 text-center text-md-left mb-3 mb-md-0">
+                <p class="m-0 text-white">&copy; <a href="#">Your Site Name</a>. All Rights Reserved. 
+				
+				<!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+				Designed by <a href="https://htmlcodex.com">HTML Codex</a>
+                </p>
+            </div>
+            <div class="col-lg-6 text-center text-md-right">
+                <ul class="nav d-inline-flex">
+                    <li class="nav-item">
+                        <a class="nav-link text-white py-0" href="#">Privacy</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white py-0" href="#">Terms</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white py-0" href="#">FAQs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white py-0" href="#">Help</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
